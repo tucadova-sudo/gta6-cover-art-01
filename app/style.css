@@ -1,0 +1,50 @@
+/* Neon Bay Cover Studio — dark editor chrome around a bright poster preview. */
+html, body { margin: 0; min-height: 100%; background: #17101f; color: #f2ecf7; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.app { display: flex; gap: 28px; align-items: flex-start; justify-content: center; padding: 22px; box-sizing: border-box; }
+.controls { width: 330px; flex: none; display: flex; flex-direction: column; gap: 16px; }
+.controls header h1 { margin: 0; font-size: 26px; line-height: 1.15; letter-spacing: -0.5px; }
+.tag { margin: 6px 0 0; color: #b9a8c9; }
+.group { background: #221829; border: 1px solid #37264a; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.group h2 { margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1.4px; color: #ffb347; }
+.hint { margin: 0; font-size: 13px; color: #b9a8c9; }
+.panel-label { margin: 0; font-weight: 700; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
+input[type=text], select { font: inherit; padding: 9px 10px; border: 1px solid #4a3560; border-radius: 8px; background: #17101f; color: #f2ecf7; }
+input[type=range] { width: 100%; accent-color: #ff2e88; }
+.upload { cursor: pointer; }
+.upload input { position: absolute; opacity: 0; pointer-events: none; }
+.upload { border: 1px dashed #7a5a9e; border-radius: 8px; padding: 10px; text-align: center; background: #1d1226; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+.row.wrap { flex-wrap: wrap; }
+.opt { font: inherit; font-weight: 600; padding: 8px 11px; border: 1px solid #4a3560; border-radius: 8px; background: #2a1d36; color: #e8dff2; cursor: pointer; }
+.opt:hover { border-color: #ff2e88; }
+.opt.active { background: #ff2e88; border-color: #ff2e88; color: #fff; }
+.opt.swatch { display: inline-flex; align-items: center; gap: 7px; }
+.opt .dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; border: 1px solid rgba(255,255,255,0.5); }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { font: inherit; font-size: 13px; font-weight: 600; padding: 6px 10px; border-radius: 999px; border: 1px solid #4a3560; background: #2a1d36; color: #e8dff2; cursor: pointer; }
+.chip:hover { border-color: #00e5ff; }
+button { font: inherit; }
+.ghost { flex: 1; padding: 8px; border: 1px solid #4a3560; border-radius: 8px; background: transparent; color: #e8dff2; cursor: pointer; }
+.ghost:hover { border-color: #00e5ff; }
+.primary { font-weight: 800; font-size: 16px; padding: 12px; border: 0; border-radius: 10px; background: linear-gradient(135deg, #ff9a3d, #ff2e88 55%, #7a2bff); color: #fff; cursor: pointer; }
+.primary:hover { filter: brightness(1.1); }
+#status { margin: 0; min-height: 1.2em; font-size: 13px; color: #9be8d8; }
+.preview { flex: 1; max-width: 860px; display: flex; flex-direction: column; align-items: center; gap: 12px; position: sticky; top: 22px; }
+#cover { width: min(78vh, 100%); height: auto; box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55); border-radius: 4px; cursor: grab; touch-action: none; }
+#cover:active { cursor: grabbing; }
+.dots { display: flex; gap: 8px; }
+.dot-btn { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #4a3560; background: #2a1d36; color: #e8dff2; font-weight: 700; cursor: pointer; }
+.dot-btn.active { background: #ff2e88; border-color: #ff2e88; color: #fff; }
+.size-label { margin: 0; font-size: 13px; color: #b9a8c9; }
+@media (max-width: 900px) {
+  .app { flex-direction: column; }
+  .controls { width: 100%; }
+  .preview { position: static; max-width: 100%; width: 100%; }
+}
+/* Screenshot mode: the cover alone, edge to edge. */
+body.shot-cover { background: #000; }
+body.shot-cover .controls, body.shot-cover .dots, body.shot-cover .size-label { display: none; }
+body.shot-cover .app { padding: 0; gap: 0; display: block; }
+body.shot-cover .preview { max-width: none; position: static; }
+body.shot-cover #cover { width: 100vw; height: 100vh; object-fit: contain; box-shadow: none; border-radius: 0; background: #000; }
